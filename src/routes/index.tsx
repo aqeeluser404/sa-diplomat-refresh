@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { SiteHeader, SiteFooter } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -153,63 +153,10 @@ const ARCHIVE = [
   ["December 2022", "https://sa-diplomat.com/2022/12/"],
 ];
 
-function Header() {
-  const [open, setOpen] = useState(false);
-  return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
-      <div className="h-0.5 w-full flag-rule" />
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-5 py-3">
-        <a href="/" className="flex items-center gap-3">
-          <img src={LOGO} alt="SA Diplomat Abroad logo" className="h-10 w-auto" />
-        </a>
-        <nav className="hidden items-center gap-1 md:flex">
-          {NAV.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-            >
-              {item.label}
-            </a>
-          ))}
-          <a
-            href="https://www.youtube.com/channel/UCz-5fIOxAcTiXzj_FwzOaLg"
-            className="ml-2 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-          >
-            Subscribe
-          </a>
-        </nav>
-        <button
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-          className="rounded-md border border-border p-2 text-foreground md:hidden"
-        >
-          <span className="block h-0.5 w-5 bg-current" />
-          <span className="mt-1 block h-0.5 w-5 bg-current" />
-          <span className="mt-1 block h-0.5 w-5 bg-current" />
-        </button>
-      </div>
-      {open && (
-        <nav className="border-t border-border px-5 pb-4 md:hidden">
-          {NAV.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="block py-2 text-sm text-muted-foreground hover:text-foreground"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-      )}
-    </header>
-  );
-}
-
 function Index() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <SiteHeader />
 
       <main>
         {/* Hero + weekly market update */}
@@ -369,27 +316,7 @@ function Index() {
         </section>
       </main>
 
-      <footer className="border-t border-border">
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-5 py-10 text-center">
-          <img src={LOGO} alt="SA Diplomat Abroad" className="h-10 w-auto" />
-          <p className="max-w-xl text-xs leading-relaxed text-muted-foreground">
-            Content is intended for information purposes only and should under no circumstances be
-            construed as financial advice. It is imperative to seek advice from a registered and
-            accredited Financial Adviser, Planner or Broker.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
-            {NAV.map((item) => (
-              <a key={item.label} href={item.href} className="hover:text-foreground">
-                {item.label}
-              </a>
-            ))}
-          </div>
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} SA Diplomat Abroad. All rights reserved.
-          </p>
-        </div>
-        <div className="h-1 w-full flag-rule" />
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
