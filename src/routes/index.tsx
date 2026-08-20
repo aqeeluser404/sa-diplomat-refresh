@@ -26,15 +26,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const LOGO =
-  "https://sa-diplomat.com/wp-content/uploads/2021/09/SADA_Logo_ThinWhiteGlow-600-180.png";
-
-const NAV = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "https://sa-diplomat.com/about/" },
-  { label: "Gallery", href: "https://sa-diplomat.com/gallery/" },
-  { label: "Contact Us", href: "https://sa-diplomat.com/contact-us/" },
-];
 
 const ARTICLES = [
   {
