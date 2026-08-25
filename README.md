@@ -4,7 +4,7 @@ A modernization of [sa-diplomat.com](https://sa-diplomat.com/), refreshing the v
 
 ## About This Project
 
-This is a client redesign project. The original site's layout and content structure remain the foundation — this redesign focuses on modernizing the visual presentation (typography, spacing, color, and overall polish) rather than a full rebuild.
+This is a client redesign project. The original site's layout and content structure remain the foundation - this redesign focuses on modernizing the visual presentation (typography, spacing, color, and overall polish) rather than a full rebuild.
 
 ## Development
 
