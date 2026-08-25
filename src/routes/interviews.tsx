@@ -104,7 +104,7 @@ function InterviewsPage() {
           </div>
         </section>
 
-        <AdvertisersSection />
+        {/* <AdvertisersSection /> */}
       </main>
       <SiteFooter />
     </div>

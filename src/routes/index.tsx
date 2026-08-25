@@ -187,6 +187,25 @@ function Index() {
           </div>
         </section>
 
+        {/* Archive */}
+        <section className="border-t border-border">
+          <div className="mx-auto max-w-6xl px-5 py-14">
+            <h2 className="text-2xl font-bold text-foreground">Archive news</h2>
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              {Object.keys(PERIOD_LABELS).map((p) => (
+                <Link
+                  key={p}
+                  to="/archive"
+                  hash={p}
+                  className="rounded-full border border-border bg-background/40 px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
+                >
+                  {PERIOD_LABELS[p]}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Current interviews */}
         <section className="border-t border-border bg-surface/40">
           <div className="mx-auto max-w-6xl px-5 py-16">
@@ -207,25 +226,6 @@ function Index() {
             <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {INTERVIEWS.slice(0, 4).map((i) => (
                 <InterviewCard key={i.id} item={i} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Archive */}
-        <section className="border-t border-border">
-          <div className="mx-auto max-w-6xl px-5 py-14">
-            <h2 className="text-2xl font-bold text-foreground">Archive news</h2>
-            <div className="mt-6 flex flex-wrap gap-2.5">
-              {Object.keys(PERIOD_LABELS).map((p) => (
-                <Link
-                  key={p}
-                  to="/archive"
-                  hash={p}
-                  className="rounded-full border border-border bg-background/40 px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
-                >
-                  {PERIOD_LABELS[p]}
-                </Link>
               ))}
             </div>
           </div>
