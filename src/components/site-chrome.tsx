@@ -7,6 +7,8 @@ export const LOGO =
 export const NAV = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
+  { label: "Interviews", to: "/interviews" },
+  { label: "Archive", to: "/archive" },
   { label: "Gallery", to: "/gallery" },
   { label: "Contact Us", to: "/contact" },
 ] as const;
