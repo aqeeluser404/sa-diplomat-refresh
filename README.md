@@ -1,4 +1,4 @@
-# SA Diplomat — Website Redesign
+# SA Diplomat - Website Redesign
 
 A modernization of [sa-diplomat.com](https://sa-diplomat.com/), refreshing the visual design while preserving the site's core structure and brand identity. The goal is an updated, current look without straying from what the original site already does well.
 
