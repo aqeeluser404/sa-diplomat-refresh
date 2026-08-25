@@ -1,5 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter } from "@/components/site-chrome";
+import { InterviewCard, AdvertisersSection } from "@/components/sections";
+import { ARTICLES, PERIOD_LABELS } from "@/data/articles";
+import { INTERVIEWS, SPONSOR_BANNERS } from "@/data/media";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,122 +31,8 @@ export const Route = createFileRoute("/")({
 });
 
 
-const ARTICLES = [
-  {
-    title: "Camissa Insights Q2 | 2026",
-    date: "29 July, 2026",
-    excerpt:
-      "In the second quarter, global economic activity has proved surprisingly resilient in the face of the…",
-    image: "https://sa-diplomat.com/wp-content/uploads/2026/07/Article-Heading-Q2-2026.png",
-    href: "https://sa-diplomat.com/camissa-insights-q2-2026/",
-    tag: "Insights",
-  },
-  {
-    title: "The Great JSE Divergence: Navigating the Recovery Gap in a Post-Iran War Market",
-    date: "7 May, 2026",
-    excerpt:
-      "Since the first military strikes on February 28, 2026, the Johannesburg Stock Exchange hasn't just b…",
-    image: "https://sa-diplomat.com/wp-content/uploads/2026/05/7-May-2026-Article.png",
-    href: "https://sa-diplomat.com/the-great-jse-divergence-navigating-the-recovery-gap-in-a-post-iran-war-market/",
-    tag: "Markets",
-  },
-  {
-    title: "The Inflationary Impact of Rising Petrol Prices in South Africa",
-    date: "4 May, 2026",
-    excerpt:
-      "South Africa is currently experiencing one of the most significant fuel price shocks in recent years…",
-    image:
-      "https://sa-diplomat.com/wp-content/uploads/2026/05/The-Inflationary-Impact-of-Rising-Petrol-Prices-in-South-Africa-PICTURE.png",
-    href: "https://sa-diplomat.com/the-inflationary-impact-of-rising-petrol-prices-in-south-africa/",
-    tag: "Economy",
-  },
-  {
-    title: "Camissa insights Q1 | 2026",
-    date: "28 April, 2026",
-    excerpt:
-      "Global economic activity, already weakened by aggressive, hostile US foreign policy and persistent p…",
-    image: "https://sa-diplomat.com/wp-content/uploads/2026/04/Q1-2026-Commentary.png",
-    href: "https://sa-diplomat.com/camissa-insights-q1-2026/",
-    tag: "Insights",
-  },
-  {
-    title: "From Chokepoint to Toll Gate: How Hormuz Could Reshape Oil Costs for South Africa",
-    date: "12 April, 2026",
-    excerpt:
-      "The reopening of the Strait of Hormuz would ordinarily signal relief for global oil markets. As one …",
-    image:
-      "https://sa-diplomat.com/wp-content/uploads/2026/04/YouTube-Thumbnail-December-2022.png",
-    href: "https://sa-diplomat.com/from-chokepoint-to-toll-gate-how-hormuz-could-reshape-oil-costs-for-south-africa/",
-    tag: "Commodities",
-  },
-  {
-    title: "The Economic Impact of Rising Petrol Prices in South Africa and Potential Price Ceilings",
-    date: "31 March, 2026",
-    excerpt:
-      "South Africans are once again preparing for an increase in fuel costs, as volatility in global oil m…",
-    image: "https://sa-diplomat.com/wp-content/uploads/2026/03/Petrol-Price-increase-SA.png",
-    href: "https://sa-diplomat.com/the-economic-impact-of-rising-petrol-prices-in-south-africa-and-potential-price-ceilings/",
-    tag: "Economy",
-  },
-  {
-    title: "Preparing for an International Economic Crisis: Who Is to Blame?",
-    date: "24 March, 2026",
-    excerpt:
-      "To assign responsibility to any individual or state, it is first necessary to understand the sequenc…",
-    image: "https://sa-diplomat.com/wp-content/uploads/2026/03/Economic-Crisis-2026-Iran-War.png",
-    href: "https://sa-diplomat.com/preparing-for-an-international-economic-crisis-who-is-to-blame/",
-    tag: "Global",
-  },
-  {
-    title: "Camissa insights Q4 | 2025",
-    date: "12 February, 2026",
-    excerpt:
-      "Global economic activity has slowed due to increased US tariffs and persistent uncertainty surroundi…",
-    image: "https://sa-diplomat.com/wp-content/uploads/2026/02/2025-Q4-Article-Cover.png",
-    href: "https://sa-diplomat.com/camissa-insights-q4-2025/",
-    tag: "Insights",
-  },
-  {
-    title: "Camissa insights Q3 | 2025",
-    date: "28 October, 2025",
-    excerpt:
-      "Global economic activity is slowing due to increased US tariffs and uncertainty surrounding generall…",
-    image: "https://sa-diplomat.com/wp-content/uploads/2025/10/Q3-2025.png",
-    href: "https://sa-diplomat.com/camissa-insights-q3-2025/",
-    tag: "Insights",
-  },
-];
 
-const SPONSOR_BANNERS = [
-  "https://sa-diplomat.com/wp-content/uploads/2023/02/SADA_Banner-ad_Dec22.png",
-  "https://sa-diplomat.com/wp-content/uploads/2023/02/SADA_Banner-ad_Aug22.png",
-  "https://sa-diplomat.com/wp-content/uploads/2023/02/SADA_Banner-ad_Apr22.png",
-  "https://sa-diplomat.com/wp-content/uploads/2023/02/SADA_Banner-ad_Sept22.png",
-  "https://sa-diplomat.com/wp-content/uploads/2023/02/SADA_Banner-ad_Mar22-002.png",
-  "https://sa-diplomat.com/wp-content/uploads/2023/02/SADA_Banner-ad_Jan23.png",
-  "https://sa-diplomat.com/wp-content/uploads/2023/02/SADA_Banner-ad_Feb23.png",
-];
 
-const ARCHIVE = [
-  ["July 2026", "https://sa-diplomat.com/2026/07/"],
-  ["May 2026", "https://sa-diplomat.com/2026/05/"],
-  ["April 2026", "https://sa-diplomat.com/2026/04/"],
-  ["March 2026", "https://sa-diplomat.com/2026/03/"],
-  ["February 2026", "https://sa-diplomat.com/2026/02/"],
-  ["October 2025", "https://sa-diplomat.com/2025/10/"],
-  ["August 2025", "https://sa-diplomat.com/2025/08/"],
-  ["April 2025", "https://sa-diplomat.com/2025/04/"],
-  ["February 2025", "https://sa-diplomat.com/2025/02/"],
-  ["November 2024", "https://sa-diplomat.com/2024/11/"],
-  ["July 2024", "https://sa-diplomat.com/2024/07/"],
-  ["April 2024", "https://sa-diplomat.com/2024/04/"],
-  ["January 2024", "https://sa-diplomat.com/2024/01/"],
-  ["November 2023", "https://sa-diplomat.com/2023/11/"],
-  ["September 2023", "https://sa-diplomat.com/2023/09/"],
-  ["May 2023", "https://sa-diplomat.com/2023/05/"],
-  ["March 2023", "https://sa-diplomat.com/2023/03/"],
-  ["December 2022", "https://sa-diplomat.com/2022/12/"],
-];
 
 function Index() {
   return (
