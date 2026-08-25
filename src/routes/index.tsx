@@ -140,17 +140,21 @@ function Index() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {ARTICLES.map((a) => (
               <article
-                key={a.href}
+                key={a.slug}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-border card-elevated hover:-translate-y-1"
               >
-                <a href={a.href} className="block overflow-hidden">
+                <Link
+                  to="/news/$slug"
+                  params={{ slug: a.slug }}
+                  className="block overflow-hidden"
+                >
                   <img
                     src={a.image}
                     alt={a.title}
                     loading="lazy"
                     className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                </a>
+                </Link>
                 <div className="flex flex-1 flex-col p-5">
                   <div className="flex items-center gap-3 text-xs text-muted-foreground">
                     <span className="rounded-full bg-secondary px-2.5 py-1 font-semibold uppercase tracking-wider text-foreground">
@@ -159,42 +163,75 @@ function Index() {
                     <time>{a.date}</time>
                   </div>
                   <h3 className="mt-3 text-lg font-semibold leading-snug text-foreground">
-                    <a href={a.href} className="transition-colors hover:text-primary">
+                    <Link
+                      to="/news/$slug"
+                      params={{ slug: a.slug }}
+                      className="transition-colors hover:text-primary"
+                    >
                       {a.title}
-                    </a>
+                    </Link>
                   </h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {a.excerpt}
                   </p>
-                  <a
-                    href={a.href}
+                  <Link
+                    to="/news/$slug"
+                    params={{ slug: a.slug }}
                     className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
                   >
                     Read more <span aria-hidden>→</span>
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}
           </div>
         </section>
 
-        {/* Archive */}
+        {/* Current interviews */}
         <section className="border-t border-border bg-surface/40">
-          <div className="mx-auto max-w-6xl px-5 py-14">
-            <h2 className="text-2xl font-bold text-foreground">Archive news</h2>
-            <div className="mt-6 flex flex-wrap gap-2.5">
-              {ARCHIVE.map(([label, href]) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="rounded-full border border-border bg-background/40 px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
-                >
-                  {label}
-                </a>
+          <div className="mx-auto max-w-6xl px-5 py-16">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
+                  Current interviews
+                </h2>
+                <div className="mt-3 h-0.5 w-24 flag-rule" />
+              </div>
+              <Link
+                to="/interviews"
+                className="text-sm font-semibold text-primary hover:opacity-80"
+              >
+                More interviews →
+              </Link>
+            </div>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {INTERVIEWS.slice(0, 4).map((i) => (
+                <InterviewCard key={i.id} item={i} />
               ))}
             </div>
           </div>
         </section>
+
+        {/* Archive */}
+        <section className="border-t border-border">
+          <div className="mx-auto max-w-6xl px-5 py-14">
+            <h2 className="text-2xl font-bold text-foreground">Archive news</h2>
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              {Object.keys(PERIOD_LABELS).map((p) => (
+                <Link
+                  key={p}
+                  to="/archive"
+                  hash={p}
+                  className="rounded-full border border-border bg-background/40 px-4 py-2 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
+                >
+                  {PERIOD_LABELS[p]}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <AdvertisersSection />
       </main>
 
       <SiteFooter />
